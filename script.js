@@ -12,7 +12,8 @@ const weatherIcon = document.getElementById('weather-icon');
 
 
 async function getdata(cityName){
-    const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=255d019269504abbb2e180416252406&q=${cityName}&aqi=yes`);
+    const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=d283c6020a26474fb8695753250411&q=${cityName}&aqi=yes`);
+    
     return await promise.json();
 };
 
