@@ -11,13 +11,13 @@ const lastUpdated = document.getElementById('last_updated');
 const weatherIcon = document.getElementById('weather-icon');
 
 
-async function getdata(cityName){
-    const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=d283c6020a26474fb8695753250411&q=${cityName}&aqi=yes`);
-    
+async function getdata(cityName) {
+    const promise = await fetch(`https://api.weatherapi.com/v1/current.json?key=d283c6020a26474fb8695753250411&q=${cityName}&aqi=yes`);
+
     return await promise.json();
 };
 
-button.addEventListener('click', async ()=>{
+button.addEventListener('click', async () => {
     const value = input.value;
     const result = await getdata(value);
     cityName.innerHTML = "City Name : " + `${result.location.name}, ${result.location.region}, ${result.location.country}`;
@@ -25,7 +25,7 @@ button.addEventListener('click', async ()=>{
     cityTemp.innerHTML = "Temperature : " + result.current.temp_c + "°C";
     cityCondition.innerHTML = "Conditions : " + result.current.condition.text;
     weatherIcon.src = "https:" + result.current.condition.icon;
-    cityWind.innerHTML = "Wind : " + result.current.wind_kph + " "+ "km/h";
+    cityWind.innerHTML = "Wind : " + result.current.wind_kph + " " + "km/h";
     lastUpdated.innerHTML = "last updated : " + result.current.last_updated;
-    
+
 });
